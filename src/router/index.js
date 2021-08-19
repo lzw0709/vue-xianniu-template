@@ -45,6 +45,19 @@ export const constantRoutes = [
         meta: { title: '首页', icon: 'dashboard', affix: true }
       }
     ]
+  },
+  {
+    path: '/demo',
+    component: Layout,
+    redirect: 'noRedirect',
+    children: [
+      {
+        path: 'demo',
+        component: () => import('@/views/demo/index'),
+        name: 'demo',
+        meta: { title: 'demo', icon: 'dashboard', affix: true }
+      }
+    ]
   }
 
 ]

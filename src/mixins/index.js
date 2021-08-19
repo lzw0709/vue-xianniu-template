@@ -9,11 +9,6 @@ export default {
     }
   },
   computed: {
-    notroles0() {
-      return this.$store.getters.roles.id !== 0
-    },
-    rolesD() {
-      return this.$store.getters.roles.tenantTypeCode === 'D'
-    }
+
   }
 }

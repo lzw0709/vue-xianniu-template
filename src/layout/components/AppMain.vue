@@ -1,5 +1,5 @@
 <template>
-  <section class="app-main">
+  <section class="app-main" :class="{ hideNavBar: !showNavBar }">
     <transition name="fade-transform" mode="out-in">
       <keep-alive :include="cachedViews">
         <router-view :key="key" />
@@ -9,9 +9,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'AppMain',
   computed: {
+    ...mapState({
+      showNavBar: (state) => state.settings.showNavBar
+    }),
     cachedViews() {
       return this.$store.state.tagsView.cachedViews
     },
@@ -25,15 +29,18 @@ export default {
 <style lang="scss" scoped>
 .app-main {
   /* 50= navbar  50  */
-  min-height: 100vh;
-  // min-height: calc(100vh - 50px);
+  // min-height: 100vh;
+  min-height: calc(100vh - 50px);
   width: 100%;
   position: relative;
   overflow: hidden;
+  .fixed-header + &.hideNavBar {
+    padding-top: 0;
+  }
 }
 
-.fixed-header+.app-main {
-  // padding-top: 50px;
+.fixed-header + .app-main {
+  padding-top: 50px;
 }
 
 .hasTagsView {
@@ -43,7 +50,7 @@ export default {
     // min-height: calc(100vh - 50px);
   }
 
-  .fixed-header+.app-main {
+  .fixed-header + .app-main {
     // padding-top: 50px;
   }
 }

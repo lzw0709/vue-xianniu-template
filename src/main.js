@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Cookies from 'js-cookie'
+import storage from 'good-storage'
 import 'normalize.css/normalize.css'
 import Element from 'element-ui'
 import 'xianniu-elementui-theme/element-variables.scss'
@@ -8,6 +8,10 @@ import '@/styles/index.scss'
 import App from './App'
 import store from './store'
 import router from './router'
+import '@/utils/reg'
+import '@/api/index.js'
+
+import '@/components'
 
 import './icons'
 import './permission'
@@ -27,7 +31,7 @@ Object.keys(directive).forEach(key => {
   Vue.directive(key, directive[key])
 })
 Vue.use(Element, {
-  size: Cookies.get('size') || 'small'
+  size: storage.get('size') || 'small'
 })
 Vue.mixin(mixins)
 // 修改全局默认配置：点击遮罩层关闭dialog、ESC关闭dialog

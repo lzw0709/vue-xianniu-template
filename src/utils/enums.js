@@ -44,6 +44,6 @@ Enums.prototype.getLabel = function(value = '') {
 }
 
 const enums = {
-  
+
 }
 Object.defineProperty(Vue.prototype, '$enums', { value: enums })

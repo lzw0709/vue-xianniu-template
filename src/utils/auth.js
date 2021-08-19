@@ -1,10 +1,13 @@
-import Cookies from 'js-cookie'
+import storage from 'good-storage'
 
 const TokenKey = 'xnToken'
 
 export default {
-  getToken: () => Cookies.get(TokenKey),
-  setToken: (token) => Cookies.set(TokenKey, token),
-  removeToken: () => Cookies.remove(TokenKey),
-  Cookies
+  getToken: () => storage.get(TokenKey),
+  setToken: token => storage.set(TokenKey, token),
+  removeToken: () => storage.remove(TokenKey),
+  get: key => storage.get(key),
+  remove: key => storage.remove(key),
+
+  storage
 }

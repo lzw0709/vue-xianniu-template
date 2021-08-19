@@ -6,5 +6,6 @@ module.exports = {
   sidebarLogo: true,
   errorLog: ['production', 'development'],
   routerAuth: process.env.VUE_APP_CURRENTMODE !== 'dev',
-  appNo: ''
+  appNo: '',
+  showNavBar: false
 }

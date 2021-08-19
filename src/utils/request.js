@@ -3,6 +3,7 @@ import store from '@/store'
 import qs from 'qs'
 import tools from '@/utils'
 import { MessageBox, Message, Loading } from 'element-ui'
+import domain from '@/env-config/index'
 // import vm from '@/main'
 let loadingInit = null
 const loadConfig = { fullscreen: true, text: '玩命加载中...', background: 'rgba(0,0,0,0)', customClass: 'xn-loading' }
@@ -14,7 +15,7 @@ let requestConfig = {
 }
 
 const instance = axios.create({
-  baseURL: process.env.VUE_APP_BASE_API,
+  baseURL: domain.apiUrl,
   timeout: 30000
 })
 function resetConfig() {
@@ -48,10 +49,10 @@ instance.interceptors.request.use(
     }
     switch (_config.requestBaseUrl) {
       case 'AUTH':
-        config.baseURL = process.env.VUE_APP_AUTH_API
+        config.baseURL = domain.apiUrl
         break
       default:
-        config.baseURL = process.env.VUE_APP_BASE_API
+        config.baseURL = domain.authUrl
         break
     }
     return config
