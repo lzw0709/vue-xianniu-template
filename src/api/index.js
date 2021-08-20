@@ -9,7 +9,7 @@ const apis = function(item, parentKey, suffix) {
   for (const key in item) {
     /* console.log(key)
     console.log(item[key]) */
-    const { type, url, showLoading, method = {}} = item[key]
+    const { type, url, showLoading = true, method = {}} = item[key]
     collectionApi[parentKey][key] = params =>
       http[type](`${suffix}${url}`, params, {
         showLoading: showLoading,

@@ -6,7 +6,7 @@
           <el-input v-model="formSearch.value" clearable placeholder="请输入" />
         </el-form-item>
         <el-form-item>
-          <el-button v-permission="['1']" type="primary" icon="el-icon-search">查询</el-button>
+          <el-button type="primary" icon="el-icon-search">查询</el-button>
           <el-button>重置</el-button>
         </el-form-item>
       </el-form>
@@ -93,7 +93,21 @@ export default {
       }
     }
   },
+  created() {
+    this.fnGetList()
+    this.fnGetList1()
+    this.fnGetList2()
+  },
   methods: {
+    async fnGetList() {
+      await this.$apiUrl.logistics.trajectory({ a: 123123 })
+    },
+    async fnGetList1() {
+      await this.$apiUrl.logistics.asd({})
+    },
+    async fnGetList2() {
+      await this.$apiUrl.logistics.ffff({})
+    },
     handleBtn(row) {
       console.log(row)
       this.isShow = true

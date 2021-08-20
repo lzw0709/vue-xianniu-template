@@ -1,4 +1,4 @@
 module.exports = {
-  apiUrl: 'https://www.xianniu.com',
+  apiUrl: 'https://www.xianniu1.com',
   authUrl: ''
 }
