@@ -8,7 +8,6 @@ const http = new Request({
     { name: 'BBBB', url: 'ggggggg' }
   ]
 })
-console.log(http)
 http.$on('expire', function(res) {
   // 过期
   console.log(res, self)

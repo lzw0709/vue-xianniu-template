@@ -1,24 +1,24 @@
 // import { getUserRules } from '@/api/user'
 
-import tools from '@/utils'
+import storage from '@/utils/auth'
 import { resetRouter } from '@/router'
 
 const state = {
-  token: tools.cookie.getToken(),
+  token: storage.getToken(),
   roles: [],
-  user_info: tools.storage.get('USER_INFO') || {},
+  user_info: storage.get('USER_INFO') || {},
   tags: {}
 }
 
 const mutations = {
   SET_TOKEN: (state, token) => {
     state.token = token
-    tools.cookie.setToken(token)
+    storage.setToken(token)
   },
 
   SET_USER_INFO: (state, user_info) => {
     state.user_info = user_info
-    user_info !== '' ? tools.storage.set('USER_INFO', user_info) : tools.storage.remove('USER_INFO')
+    user_info !== '' ? storage.set('USER_INFO', user_info) : storage.remove('USER_INFO')
   },
   SET_ROLES: (state, roles) => {
     state.roles = roles
@@ -66,7 +66,7 @@ const actions = {
       commit('SET_TOKEN', '')
       commit('SET_ROLES', [])
       commit('SET_USER_INFO', '')
-      tools.cookie.removeToken()
+      storage.removeToken()
       resetRouter()
       // reset visited views and cached views
       // to fixed https://github.com/PanJiaChen/vue-element-admin/issues/2485
@@ -81,7 +81,7 @@ const actions = {
       commit('SET_TOKEN', '')
       commit('SET_ROLES', [])
 
-      tools.cookie.removeToken()
+      storage.removeToken()
       resolve()
     })
   }

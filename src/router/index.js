@@ -5,7 +5,9 @@ Vue.use(Router)
 
 /* Layout */
 import Layout from '@/layout'
-
+const zenwei_route_list = []
+const tingting_route_list = []
+const zewen_route_list = []
 export const constantRoutes = [
   {
     path: '/redirect',
@@ -58,9 +60,13 @@ export const constantRoutes = [
         meta: { title: 'demo', icon: 'dashboard', affix: true }
       }
     ]
-  }
+  },
+  ...zenwei_route_list,
+  ...tingting_route_list,
+  ...zewen_route_list
 
 ]
+console.log(constantRoutes)
 
 export const asyncRoutes = [
 

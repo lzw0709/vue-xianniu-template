@@ -22,7 +22,7 @@ const serveManage = {
   },
   getList: {
     url: '/serviceForm/getList', // 获取列表
-    type: 'get',
+    type: 'get'
   }
 }
 

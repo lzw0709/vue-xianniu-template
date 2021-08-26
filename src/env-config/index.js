@@ -7,6 +7,6 @@ let domain = {}
 domain = require(`./${VUE_APP_CURRENTMODE}`)
 module.exports = {
   recordMsg: RECORD_MSG,
-  test_port: 12306,
+  test_port: 12037,
   ...domain
 }

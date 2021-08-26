@@ -1,7 +1,6 @@
 <template>
   <div class="dashboard-container">
     <h2 class="text-center pt-30">欢迎您</h2>
-
   </div>
 </template>
 
@@ -14,7 +13,8 @@ export default {
     }
   },
   computed: {},
-  created() {},
-  methods: {}
+  created() {
+    window.localStorage.setItem('xnToken', 'dddddddddd')
+  }
 }
 </script>

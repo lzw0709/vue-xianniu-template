@@ -3,7 +3,7 @@ import store from './store'
 import { Message } from 'element-ui'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import tools from '@/utils'
+import storage from '@/utils/auth'
 import getPageTitle from '@/utils/get-page-title'
 
 NProgress.configure({ showSpinner: false })
@@ -14,7 +14,8 @@ router.beforeEach(async(to, from, next) => {
   NProgress.start()
 
   document.title = getPageTitle(to.meta.title)
-  const hasToken = tools.cookie.getToken()
+
+  const hasToken = storage.getToken()
 
   if (hasToken) {
     if (to.path === '/login') {
