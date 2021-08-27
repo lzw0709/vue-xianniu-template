@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/styles/mixin.scss";
+@import "~xianniu-elementui-theme/mixin.scss";
 @import "~xianniu-elementui-theme/variables.scss";
 
 .app-wrapper {

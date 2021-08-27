@@ -1,5 +1,5 @@
 module.exports = {
-  title: '项目模板',
+  title: '采购云协同',
   tagsView: false,
   fixedHeader: true,
   sidebarLogo: false,
