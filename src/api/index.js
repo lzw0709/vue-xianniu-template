@@ -1,6 +1,6 @@
 import http from '@/utils/request'
 import Vue from 'vue'
-// import xt from './xt'
+import xt from './xt'
 const collectionApi = {}
 const apis = function(item, parentKey, suffix) {
   collectionApi[parentKey] = {}
@@ -13,9 +13,9 @@ const apis = function(item, parentKey, suffix) {
       })
   }
 }
-// for (const key in xt) {
-//   apis(xt[key], key, '/pms')
-// }
+for (const key in xt) {
+  apis(xt[key], key, '/pms')
+}
 Object.defineProperty(Vue.prototype, '$api', {
   value: collectionApi
 })

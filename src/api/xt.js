@@ -11,7 +11,6 @@ const purchHall = {
   }
 }
 
-
 export default {
   purchHall
 }
