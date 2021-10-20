@@ -247,6 +247,11 @@ $-idcard-width:428px/2;
     text-align: center;
   }
 }
+.cus-el-card{
+  .el-card__header{
+    padding: 10px 20px;
+  }
+}
 pre{
   white-space: pre-wrap;
 word-wrap: break-word;

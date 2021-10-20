@@ -1,7 +1,6 @@
 <template>
   <div :class="{'has-logo':showLogo}">
     <logo v-if="showLogo" :collapse="isCollapse" />
-    <enterprise />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
@@ -23,11 +22,10 @@
 import { mapGetters } from 'vuex'
 import Logo from './Logo'
 import SidebarItem from './SidebarItem'
-import Enterprise from './Enterprise'
 import variables from 'xianniu-elementui-theme/variables.scss'
 
 export default {
-  components: { SidebarItem, Enterprise, Logo },
+  components: { SidebarItem, Logo },
   computed: {
     ...mapGetters([
       'permission_routes',

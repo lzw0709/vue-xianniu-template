@@ -203,19 +203,7 @@ export default {
     },
     onReset() {
     },
-    async fnGetList() {
-      await this.$apiUrl.logistics.trajectory({ a: 123123 })
-    },
-    async fnGetList1() {
-      await this.$apiUrl.logistics.asd({})
-    },
-    async fnGetList2() {
-      await this.$apiUrl.logistics.ffff({})
-    },
-    handleBtn(row) {
-      console.log(row)
-      this.isShow = true
-    },
+
     onSubmit() {
       this.$refs.form.validate((valid) => {
         if (valid) {

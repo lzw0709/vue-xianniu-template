@@ -5,6 +5,7 @@ import 'xianniu-elementui-theme/element-variables.scss'
 import '@/styles/index.scss'
 /* 全局自动化注册组件 */
 import 'xianniu-components'
+
 import App from './App'
 import store from './store'
 import router from './router'
@@ -12,8 +13,12 @@ import router from './router'
 import '@/api/index.js'
 
 import './icons'
+
 import './permission'
 
+import '@/components'
+
+import * as filters from '@/filters'
 import * as directive from './directive'
 
 import '@/utils/enums'
@@ -21,9 +26,14 @@ import '@/utils/enums'
 import utils from 'xianniu-tools'
 
 import mixins from '@/mixins'
+import Bus from './utils/mitt'
 
 Object.keys(directive).forEach(key => {
   Vue.directive(key, directive[key])
+})
+
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
 })
 Vue.use(Element, {
   size: 'small'
@@ -34,6 +44,7 @@ Vue.use(utils)
 Element.Dialog.props.closeOnClickModal.default = false
 Element.Dialog.props.closeOnPressEscape.default = false
 Vue.config.productionTip = false
+Vue.prototype.$bus = Bus
 const vm = new Vue({
   el: '#app',
   router,

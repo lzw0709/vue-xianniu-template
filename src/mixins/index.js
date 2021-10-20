@@ -3,7 +3,7 @@ export default {
     return {
       pageQuery: {
         pageNum: 1,
-        pageSize: 10,
+        pageSize: 15,
         total: 0
       }
     }

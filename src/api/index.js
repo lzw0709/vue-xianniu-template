@@ -1,14 +1,12 @@
 import http from '@/utils/request'
 import Vue from 'vue'
-import objUrls from './tsUrl'
-import objTpUrls from './tpUrl'
-
+import xt from './xt'
+import auth from './auth'
+import ts from './ts'
 const collectionApi = {}
 const apis = function(item, parentKey, suffix) {
   collectionApi[parentKey] = {}
   for (const key in item) {
-    /* console.log(key)
-    console.log(item[key]) */
     const { type, url, showLoading = true, method = {}} = item[key]
     collectionApi[parentKey][key] = params =>
       http[type](`${suffix}${url}`, params, {
@@ -17,18 +15,18 @@ const apis = function(item, parentKey, suffix) {
       })
   }
 }
-
-for (const key in objUrls) {
-  apis(objUrls[key], key, 'ts')
+for (const key in xt) {
+  apis(xt[key], key, '/pms')
 }
-
-for (const key in objTpUrls) {
-  apis(objTpUrls[key], key, 'tp')
+for (const key in auth) {
+  apis(auth[key], key, '/auth')
 }
-
-Object.defineProperty(Vue.prototype, '$apiUrl', {
+for (const key in ts) {
+  apis(ts[key], key, '/ts')
+}
+Object.defineProperty(Vue.prototype, '$api', {
   value: collectionApi
 })
-// Object.defineProperty(Vue.prototype, "$apiUrl", { value: objUrls });
-
-// export default
+export {
+  collectionApi as api
+}

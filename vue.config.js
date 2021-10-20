@@ -16,7 +16,7 @@ module.exports = {
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
-  productionSourceMap: false,
+  productionSourceMap: process.env.NODE_ENV === 'development',
   devServer: {
     compress: true,
     disableHostCheck: true,
@@ -44,7 +44,8 @@ module.exports = {
       alias: {
         '@': resolve('src')
       }
-    }
+    },
+    devtool: 'source-map'
   },
   chainWebpack(config) {
     config.plugin('preload').tap(() => [

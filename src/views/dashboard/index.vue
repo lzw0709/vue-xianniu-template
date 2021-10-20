@@ -9,12 +9,10 @@ export default {
   name: 'Dashboard',
   data() {
     return {
-      list: [{ id: 1, label: '你好', age: 12 }]
     }
   },
   computed: {},
   created() {
-    window.localStorage.setItem('xnToken', 'dddddddddd')
   }
 }
 </script>

@@ -2,7 +2,7 @@
   <div class="navbar">
     <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
     <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
-    <div class="right-menu">
+    <div v-if="false" class="right-menu">
       <el-dropdown trigger="click" class="avatar-container right-menu-item hover-effect">
         <div class="avatar-wrapper flex align-items-center">
           <el-image :src="user_info.icon" fit="cover" class="user-avatar">

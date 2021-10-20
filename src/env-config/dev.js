@@ -1,4 +1,5 @@
 module.exports = {
-  apiUrl: 'https://www.xianniu1.com',
-  authUrl: ''
+  apiUrl: 'https://gatewaydev.xianniu.cn',
+  authUrl: 'https://gatewaydev.xianniu.cn',
+  upload: 'https://gatewaydev.xianniu.cn/tp'
 }

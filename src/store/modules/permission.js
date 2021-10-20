@@ -51,14 +51,14 @@ const mutations = {
 }
 
 const actions = {
-  generateRoutes({ commit }, { permissionList }) {
+  generateRoutes({ commit }, { permissionList, identityType }) {
     return new Promise(resolve => {
       let accessedRoutes
       const roles = permissionList.length ? permissionList : ['']
       if (!defaultSettings.routerAuth) {
         accessedRoutes = asyncRoutes || []
       } else {
-        if (roles.includes(roles)) {
+        if (roles.includes(roles) || [1, 2].includes(identityType)) {
           accessedRoutes = asyncRoutes || []
         } else {
           accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
